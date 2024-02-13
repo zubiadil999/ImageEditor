@@ -11,6 +11,11 @@
         #mask {
             display: none;
         }
+        #preview {
+            max-width: 100%;
+            max-height: 200px;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -46,11 +51,25 @@
                 <input class="form-control-file" type="file" name="mask" id="mask" accept="image/*" required>
             </div>
 
+            <!-- Image Preview -->
+            <div class="form-group">
+                <label for="preview">Preview:</label>
+                <img id="preview" src="#" alt="Image Preview">
+            </div>
+
+            <!-- Image Manipulation Options -->
+            <div class="form-group">
+                <label>Image Manipulation:</label>
+                <button type="button" class="btn btn-secondary" onclick="rotateImage()">Rotate</button>
+                <button type="button" class="btn btn-secondary" onclick="resizeImage()">Resize</button>
+            </div>
+
             <button class="btn btn-primary" id="submitButton" type="submit" disabled>Upload & Process</button>
         </form>
     </div>
 
     <!-- External JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="js/upload.js"></script>
 </body>
 </html>

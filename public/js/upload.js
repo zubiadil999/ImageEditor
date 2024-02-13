@@ -75,3 +75,48 @@ function handleFeatureSelection() {
 document.getElementById('feature').addEventListener('change', handleFeatureSelection);
 
 handleFeatureSelection();
+
+        // Function to rotate image
+        function rotateImage() {
+            // Fetch the image element
+            var img = document.getElementById('preview');
+            // Increment the rotation by 90 degrees
+            var currentRotation = (parseInt(img.getAttribute('data-rotation')) || 0) + 90;
+            // Apply rotation to the image
+            img.style.transform = 'rotate(' + currentRotation + 'deg)';
+            // Update the rotation attribute
+            img.setAttribute('data-rotation', currentRotation);
+        }
+
+        // Function to resize image
+        function resizeImage() {
+            // Fetch the image element
+            var img = document.getElementById('preview');
+            // Fetch the current width and height
+            var currentWidth = img.width;
+            var currentHeight = img.height;
+            // Reduce dimensions by 10% (for example)
+            var newWidth = currentWidth * 0.9;
+            var newHeight = currentHeight * 0.9;
+            // Apply new dimensions to the image
+            img.style.width = newWidth + 'px';
+            img.style.height = newHeight + 'px';
+        }
+
+        // Function to handle image preview
+        function handleImagePreview(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    $('#preview').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        // Event listener for image input change
+        $('#image').change(function() {
+            handleImagePreview(this);
+        });
