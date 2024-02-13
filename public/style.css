@@ -1,0 +1,26 @@
+/* styles.css */
+
+/* Custom CSS for the Locations page */
+
+body {
+    background-color: #f8f9fa;
+}
+
+.container {
+    padding-top: 50px;
+}
+
+.search-input,
+.sort-by {
+    width: 250px;
+}
+
+#toggleLocations {
+    margin-right: 10px;
+}
+
+#location-table {
+    background-color: #fff;
+}
+
+/* Optional: Add more styling as needed */
